@@ -1,4 +1,9 @@
 <h1> <%= @producto.nombre %></h1>
+<% unless @producto.cliente.nil? %>
+<p>
+	Escrito por: <%= @producto.cliente.email %>
+</p>
+<%end%>
 <div>
 	<%= @producto.codigo%>
 </div>

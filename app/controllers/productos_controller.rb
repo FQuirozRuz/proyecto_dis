@@ -11,7 +11,7 @@ class ProductosController < ApplicationController
 		@producto = Producto.new
 	end
 	def create
-		@producto = Producto.new(producto_params)
+		@producto = current_user.productos.new(producto_params)
 		if @producto.save
 			redirect_to @producto
 		else
