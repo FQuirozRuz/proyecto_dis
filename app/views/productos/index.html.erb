@@ -1,0 +1,6 @@
+<% @producto.each do |producto| %>
+	<h1> <%= link_to producto.nombre, producto %></h1>
+	<div>
+		<%= producto.codigo%> - <%= link_to "Eliminar", producto, method: :delete, class:"red"%>
+	</div>
+<%end%>
