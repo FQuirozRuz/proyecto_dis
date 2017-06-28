@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627044921) do
+ActiveRecord::Schema.define(version: 20170628004746) do
 
   create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -31,6 +31,23 @@ ActiveRecord::Schema.define(version: 20170627044921) do
     t.index ["reset_password_token"], name: "index_clientes_on_reset_password_token", unique: true
   end
 
+  create_table "detalle_compras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "codigo_detalle"
+    t.integer "cantidad"
+    t.integer "precio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pedidos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "num_venta"
+    t.date "fecha_compra"
+    t.string "dirección_de_entrega"
+    t.date "fecha_entrega"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "productos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "codigo"
     t.string "nombre"
@@ -41,6 +58,16 @@ ActiveRecord::Schema.define(version: 20170627044921) do
     t.datetime "updated_at", null: false
     t.bigint "cliente_id"
     t.index ["cliente_id"], name: "index_productos_on_cliente_id"
+  end
+
+  create_table "proveedors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "codigo_prov"
+    t.string "nombre"
+    t.string "dirección"
+    t.string "ciudad"
+    t.integer "fono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "productos", "clientes"
