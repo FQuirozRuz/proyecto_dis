@@ -1,4 +1,5 @@
 class ProductosController < ApplicationController
+	
 	def index
 		@producto = Producto.all
 	end 
@@ -36,6 +37,7 @@ class ProductosController < ApplicationController
 		redirect_to productos_path
 	end
 	private
+
 
 	def producto_params
 		params.require(:producto).permit(:codigo,:nombre)

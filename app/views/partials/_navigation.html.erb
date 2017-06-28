@@ -8,14 +8,11 @@
 				 <%= link_to "Inicio", root_path %>
 			</li>
 			<li class="col-md">
-				Diseño
+				<%= link_to "Productos", productos_path %>
 			</li>
+			
+				
 			<li class="col-md">
-				Programación
-			</li>
-			<li class="col-md">
-				Tecnología
-			</li class="col-md">
 			<% if cliente_signed_in? %>
 				<li class="col-md">
 					<%= link_to "Cerrar sesión", destroy_cliente_session_path, method: :delete, class:"be-red white"%>
@@ -27,6 +24,7 @@
 				<li class="col-md">
 					<%= link_to "Crear cuenta", new_cliente_registration_path, class:"be-red white"%>
 				</li>
+			</li>
 			<%end%>
 		</ul>
 	</nav>
